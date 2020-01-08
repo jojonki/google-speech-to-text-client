@@ -19,14 +19,14 @@ def load_pickle(path):
 
 def transcribe_gcs(gcs_uri):
     """Asynchronously transcribes the audio file specified by the gcs_uri."""
+    if not gcs_uri:
+        print('You need to specify Google Cloud Storage URL for your audio file')
+        return
     print('Transcribe', gcs_uri)
     audio_file_name = gcs_uri.split('/')[-1]
     if not audio_file_name:
         audio_file_name = 'out'
     audio_file_name = audio_file_name.replace('.flac', '')
-    if not gcs_uri:
-        print('You need to specify Google Cloud Storage URL for your audio file')
-        return
     client = speech.SpeechClient()
 
     audio = types.RecognitionAudio(uri=gcs_uri)
