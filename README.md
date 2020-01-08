@@ -7,7 +7,7 @@
 - Set up Google Cloud API and SDKs
 - Convert mp3 to flac via ffmpeg
 ```
-$ ffmpeg -i small.mp3 -vn -ar 16000 -ac 1 -acodec flac -f flac small.flac
+$ ./mp3_to_flac.sh <mp3 file path>
 ```
 - Upload your mp3 file to Google Cloud Storage
 - Call Cloud Speech-to-Text API
